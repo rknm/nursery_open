@@ -1,0 +1,15 @@
+version: '3'
+services:
+  stremlit:
+    restart: always
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    container_name: stremlit
+    working_dir: '/src'
+    tty: true
+    volumes: 
+      - ./streamlit:/src
+    ports: 
+      - '3008:8501'
+    command: streamlit run st.py
